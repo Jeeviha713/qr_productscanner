@@ -9,7 +9,7 @@ export default function AdminDashboard() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://qr-productscanner.onrender.com/api/products");
       const productData = Array.isArray(res.data) ? res.data : [];
       setProducts(productData);
     } catch (error) {

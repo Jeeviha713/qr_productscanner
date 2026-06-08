@@ -18,7 +18,7 @@ export default function AddProduct() {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await axios.get("http://localhost:5000/api/products");
+    const res = await axios.get("https://qr-productscanner.onrender.com/api/products");
     setProducts(res.data);
   };
 
@@ -62,12 +62,12 @@ export default function AddProduct() {
     try {
       if (editId) {
         await axios.put(
-          `http://localhost:5000/api/products/${editId}`,
+          `https://qr-productscanner.onrender.com/api/products/${editId}`,
           formData
         );
         alert("Updated!");
       } else {
-        await axios.post("http://localhost:5000/api/products", formData);
+        await axios.post("https://qr-productscanner.onrender.com/api/products", formData);
         alert("Added!");
       }
 
@@ -80,7 +80,7 @@ export default function AddProduct() {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Delete?")) return;
-    await axios.delete(`http://localhost:5000/api/products/${id}`);
+    await axios.delete(`https://qr-productscanner.onrender.com/api/products/${id}`);
     fetchProducts();
   };
 
@@ -89,7 +89,7 @@ export default function AddProduct() {
     setPrice(p.price);
     setDescription(p.description);
     setEditId(p._id);
-    setPreview(`http://localhost:5000/uploads/${p.image}`);
+    setPreview(`https://qr-productscanner.onrender.com/uploads/${p.image}`);
   };
 
   const handleQR = async (p) => {
@@ -99,7 +99,7 @@ export default function AddProduct() {
     const qrCode = await QRCode.toDataURL(qrValue);
 
     await axios.put(
-      `http://localhost:5000/api/products/${p._id}/generate-qr`,
+      `https://qr-productscanner.onrender.com/api/products/${p._id}/generate-qr`,
       { qrCode, qrValue }
     );
 
@@ -188,7 +188,7 @@ export default function AddProduct() {
                     <tr key={p._id}>
                       <td>
                         <img
-                          src={`http://localhost:5000/uploads/${p.image}`}
+                          src={`https://qr-productscanner.onrender.com/uploads/${p.image}`}
                           width="60"
                           style={{ borderRadius: "6px" }}
                         />

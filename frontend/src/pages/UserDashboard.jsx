@@ -12,7 +12,7 @@ export default function UserDashboard() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://qr-productscanner.onrender.com/api/products");
       setProducts(res.data);
     } catch (err) {
       console.error(err);

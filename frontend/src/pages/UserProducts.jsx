@@ -30,7 +30,7 @@ export default function UserProducts() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://qr-productscanner.onrender.com/api/products");
       setProducts(res.data);
     } catch (err) {
       console.error(err);
@@ -131,7 +131,7 @@ export default function UserProducts() {
 
   const handleBuyNow = async () => {
     const res = await axios.put(
-      `http://localhost:5000/api/products/${matchedProduct._id}/purchase`
+      `https://qr-productscanner.onrender.com/api/products/${matchedProduct._id}/purchase`
     );
 
     alert(res.data.message);
@@ -169,7 +169,7 @@ export default function UserProducts() {
               <tr key={p._id}>
                 <td>
                   <img
-                    src={`http://localhost:5000/uploads/${p.image}`}
+                    src={`https://qr-productscanner.onrender.com/uploads/${p.image}`}
                     width="60"
                     height="60"
                     style={{ objectFit: "cover", borderRadius: "6px" }}
@@ -255,7 +255,7 @@ export default function UserProducts() {
             {matchedProduct && (
               <div style={productCard}>
                 <img
-                  src={`http://localhost:5000/uploads/${matchedProduct.image}`}
+                  src={`https://qr-productscanner.onrender.com/uploads/${matchedProduct.image}`}
                   style={productImg}
                 />
 
